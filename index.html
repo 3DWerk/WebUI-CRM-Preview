@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bridge Design Dashboard</title>
+  <!-- Favicon links to display the logo on the website tab -->     
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 3%;
+      background-color: #e7edf5;
+      color: rgb(63, 58, 58);
+      height: 100vh;
+      transition: width 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+      padding-left: 8px;
+    }
+
+    .sidebar:hover {
+      width: 17%;
+      align-items: flex-start;
+      padding-left: 10px;
+    }
+
+    .sidebar-item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .sidebar-item:hover {
+      background-color: #abb7c4;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .label {
+      margin-left: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .sidebar:hover .label {
+      opacity: 1;
+    }
+
+    .main-content {
+      flex-grow: 1;
+      padding: 20px;
+      background: #f5f5f5;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    /* ==== Your Input Parameters Style === */
+    h2 {
+      cursor: pointer;
+      background: #eee;
+      padding: 10px;
+      margin: 0;
+      font-size: 20px;
+      border: 1px solid #ddd;
+    }
+    .content {
+      display: none;
+      background: white;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-top: none;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    input[type="text"], input[type="file"] {
+      width: 90%;
+    }
+    .dot {
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 5px;
+    }
+    .dot.red {
+      background-color: red;
+    }
+    .dot.green {
+      background-color: green;
+    }
+    .status-missing {
+      background-color: orange;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+    .status-done {
+      background-color: green;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .center {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .progress-circle {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      margin: 0 auto;
+    }
+    .progress-circle svg {
+      transform: rotate(-90deg);
+    }
+    .progress-circle circle {
+      fill: none;
+      stroke-width: 10;
+    }
+    .progress-bg {
+      stroke: url(#bgGradient);
+    }
+    .progress-bar {
+      stroke: url(#barGradient);
+      stroke-linecap: round;
+      stroke-dasharray: 440;
+      stroke-dashoffset: 440;
+      transition: stroke-dashoffset 1.2s ease;
+    }
+    .progress-circle-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      color: #007BFF;
+      font-weight: bold;
+      transition: stroke-dashoffset 1.2s ease;
+
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-item" onclick="switchPage('home')">
+      <img src="assets/3D_Logo.png" class="icon" />
+      <span class="label">BridgeBauer</span>
+    </div>
+    <div class="sidebar-item" onclick="showUserInfo()">
+        <img src="icons/user.svg" class="icon" />
+        <span class="label">User</span>
+    </div>
+
+    <div class="sidebar-item" onclick="switchPage('dashboard')">
+      <img src="icons/dashboard.svg" class="icon" />
+      <span class="label">Dashboard</span>
+    </div>
+    <div class="sidebar-item" onclick="switchPage('input')">
+      <img src="icons/input-tablet.svg" class="icon" />
+      <span class="label">Input Parameters</span>
+    </div>
+    <!-- To add : -->
+    <div class="sidebar-item" onclick="switchPage('input')">
+      <img src="icons/request-approval.svg" class="icon" />
+      <span class="label">RFIs</span>
+    </div>
+    <div class="sidebar-item" onclick="switchPage('input')">
+        <img src="icons/documentReview.svg" class="icon" />
+        <span class="label">Document Review</span>
+    </div>
+
+  </div>
+
+  <!-- Main content area -->
+  <div class="main-content">
+    <div id="homePage">
+      <h1>Welcome to Bridge Design Dashboard</h1>
+    </div>
+
+    <div id="dashboardPage" style="display:none;">
+      <h1>Dashboard Coming Soon</h1>
+    </div>
+
+    <div id="inputPage" style="display:none;">
+      <!-- Paste entire body content of inputParameters.html BELOW -->
+      <!-- For brevity, only the container here; in your file, paste full table and scripts -->
+      <h1>Bridge Project Input Parameters</h1>
+      <div id="accordion"></div>
+      <div class="center">
+        <button onclick="calculateCompletion()">Submit</button>
+      </div>
+      <div class="center" style="margin-top:40px;">
+        <div class="progress-circle">
+          <svg width="150" height="150">
+            <defs>
+              <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ccc"/>
+                <stop offset="100%" stop-color="#999"/>
+              </linearGradient>
+              <linearGradient id="barGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#2196f3"/>
+                <stop offset="100%" stop-color="#1e88e5"/>
+              </linearGradient>
+            </defs>
+            <circle class="progress-bg" cx="75" cy="75" r="70"></circle>
+            <circle class="progress-bar" cx="75" cy="75" r="70"></circle>
+          </svg>
+          <div class="progress-circle-text" id="progressText">0%</div>
+        </div>
+        <div style="margin-top:10px; font-size:20px; color:#007BFF;">Input Completion</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paste your JavaScript logic below -->
+  <script>
+    // paste the same `data` array and JS from your inputParameters.html
+    const data = [
+    ["Guideline / Code", "#001", "Client Requirements (i.e. DB or RAB-Ing)", "String"],
+    ["Global / Site Parameter", "#002", "Terrain / DGM", "3D"],
+    ["Global / Site Parameter", "#003", "Pipe / Utilities", "2D"],
+    ["Global / Site Parameter", "#004", "Adjacent Roads / Paths", "2D"],
+    ["Global / Site Parameter", "#005", "Site-Boundary", "2D/3D"],
+    ["Alignment", "#006", "XY Alignment", "LandXML"],
+    ["Alignment", "#007", "Z Alignment", "LandXML"],
+    ["Alignment", "#008", "Structural / Deck offsets", "Num/LandXML"],
+    ["Cross-sectional Data", "#009", "Road / Track Width", "Num"],
+    ["Cross-sectional Data", "#010", "Edge beam requirements", "2D (Reference DWG)"],
+    ["Cross-sectional Data", "#011", "Structural depth and thicknesses", "PDF (Calc-Report)"],
+    ["Longitudinal Data", "#012", "Main Spans length", "Num"],
+    ["Longitudinal Data", "#013", "Kilometrierung", "Num"],
+    ["Longitudinal Data", "#014", "Section Variation", "Num"],
+    ["Components - Deck", "#015", "Material Data / System", "Str, Num"],
+    ["Components - Deck", "#016", "Geometry", "2D Sketch"],
+    ["Components - Deck", "#017", "Construction Stage", "XML, MS Project"],
+    ["Components - Pier", "#018", "Material Data / System", "Str, Num"],
+    ["Components - Pier", "#019", "Geometry", "2D Sketch"],
+    ["Components - Pier", "#020", "Construction Stage", "XML, MS Project"],
+    ["Components - Abutment", "#021", "Material Data / System", "Str, Num"],
+    ["Components - Abutment", "#022", "Geometry", "2D Sketch"],
+    ["Components - Abutment", "#023", "Construction Stage", "XML, MS Project"],
+    ["Components - Bearing", "#024", "Material Data / System", "Str, Num"],
+    ["Components - Bearing", "#025", "Geometry", "2D Sketch"],
+    ["Components - Bearing", "#026", "Construction Stage", "XML, MS Project"],
+    ["Components - OKO", "#027", "Material Data / System", "Str, Num"],
+    ["Components - OKO", "#028", "Geometry", "2D Sketch"],
+    ["Components - OKO", "#029", "Construction Stage", "XML, MS Project"],
+    ["Geotechnical", "#030", "Soil Profile", "PDF (Soil Report)"],
+    ["Geotechnical", "#031", "Retaining Structures", "2D"],
+    ["Additional Structures", "#032", "Noise Barrier", "Str/Num/2D-Drawing"],
+    ["Additional Structures", "#033", "Drainage", "Str/Num/2D-Drawing"],
+    ["Additional Structures", "#034", "Powerline", "Str/Num/2D-Drawing"],
+    ["Additional Structures", "#035", "Signage", "Str/Num/2D-Drawing"],
+  ];
+  
+  const groupedData = {};
+  data.forEach(item => {
+    const [category, id, paramName, type] = item;
+    if (!groupedData[category]) groupedData[category] = [];
+    groupedData[category].push({ id, paramName, type });
+  });
+  
+  const accordion = document.getElementById('accordion');
+  
+  for (const category in groupedData) {
+    const section = document.createElement('div');
+    section.innerHTML = `
+      <h2 onclick="toggleContent(this)">${category}</h2>
+      <div class="content">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Parameter Name</th>
+              <th>Value</th>
+              <th>Type</th>
+              <th>Created on</th>
+              <th>Upload</th>
+              <th>Status</th>
+              <th>Comment</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${groupedData[category].map(item => `
+              <tr>
+                <td>${item.id}</td>
+                <td>${item.paramName}</td>
+                <td><span class="dot red"></span><input type="text" onchange="updateStatus(this)"></td>
+                <td>${item.type}</td>
+                <td>26/04/2025</td>
+                <td><span class="dot red"></span><input type="file" onchange="updateStatus(this)"></td>
+                <td class="status"><span class="status-missing">Missing</span></td>
+                <td><input type="text" placeholder="Insert comment"></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+    accordion.appendChild(section);
+  }
+  
+  function toggleContent(element) {
+    const content = element.nextElementSibling;
+    content.style.display = content.style.display === "block" ? "none" : "block";
+  }
+  
+  function updateStatus(input) {
+    const cell = input.parentElement;
+    const dot = cell.querySelector('.dot');
+    if (input.value || (input.files && input.files.length > 0)) {
+      dot.classList.remove('red');
+      dot.classList.add('green');
+    } else {
+      dot.classList.remove('green');
+      dot.classList.add('red');
+    }
+    checkRowCompletion(cell.parentElement);
+  }
+  
+  function checkRowCompletion(row) {
+    const dots = row.querySelectorAll('.dot');
+    const status = row.querySelector('.status');
+    if ([...dots].every(dot => dot.classList.contains('green'))) {
+      status.innerHTML = '<span class="status-done">DONE</span>';
+    } else {
+      status.innerHTML = '<span class="status-missing">Missing</span>';
+    }
+  }
+  
+  function calculateCompletion() {
+    const totalDots = document.querySelectorAll('.content .dot').length;
+    const greenDots = document.querySelectorAll('.content .dot.green').length;
+    const completion = totalDots ? (greenDots / totalDots) * 100 : 0;
+    updateProgressCircle(completion);
+    updateCategoryStatus();
+  
+  }
+  
+  function updateCategoryStatus() {
+    const sections = document.querySelectorAll('#accordion > div');
+  
+    sections.forEach(section => {
+      const header = section.querySelector('h2');
+      const content = section.querySelector('.content');
+      const dots = content.querySelectorAll('table tbody tr td:nth-child(3) .dot, table tbody tr td:nth-child(6) .dot');
+      
+      let missingCount = 0;
+      dots.forEach(dot => {
+        if (!dot.classList.contains('green')) {
+          missingCount++;
+        }
+      });
+  
+      // Remove existing indicator if any
+      const oldIndicator = header.querySelector('.indicator');
+      if (oldIndicator) {
+        oldIndicator.remove();
+      }
+  
+      const indicator = document.createElement('span');
+      indicator.classList.add('indicator');
+      indicator.style.marginLeft = '10px';
+      indicator.style.fontWeight = 'bold';
+      indicator.style.borderRadius = '50%';
+      indicator.style.padding = '5px 10px';
+      indicator.style.color = 'white';
+      indicator.style.fontSize = '14px';
+      indicator.style.display = 'inline-flex';
+      indicator.style.alignItems = 'center';
+      indicator.style.justifyContent = 'center';
+  
+      if (missingCount > 0) {
+        indicator.style.backgroundColor = 'red';
+        indicator.textContent = missingCount;
+      } else {
+        indicator.style.backgroundColor = 'green';
+        indicator.innerHTML = '&#10003;'; // Checkmark
+      }
+  
+      header.appendChild(indicator);
+    });
+  }
+  
+  
+  
+  function updateProgressCircle(percentage) {
+    const circle = document.querySelector('.progress-bar');
+    const text = document.getElementById('progressText');
+    const radius = circle.r.baseVal.value;
+    const circumference = 2 * Math.PI * radius;
+    const offset = circumference - (percentage / 100) * circumference;
+    circle.style.strokeDashoffset = offset;
+    text.textContent = percentage.toFixed(2).replace('.', ',') + '%';
+  }
+    // Your existing JS from inputParameters.html goes here
+
+    function switchPage(page) {
+      document.getElementById('homePage').style.display = 'none';
+      document.getElementById('dashboardPage').style.display = 'none';
+      document.getElementById('inputPage').style.display = 'none';
+      document.getElementById(page + 'Page').style.display = 'block';
+    }
+
+    function showUserInfo() {
+      alert("User info:\nName: John Doe\nEmail: john@bridgebauer.com\nNotifications: 2 updates.");
+    }
+  </script>
+</body>
+</html>
