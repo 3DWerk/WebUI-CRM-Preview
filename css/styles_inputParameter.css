@@ -1,0 +1,104 @@
+h2 {
+    cursor: pointer;
+    background: #eee;
+    padding: 10px;
+    margin: 0;
+    font-size: 20px;
+    border: 1px solid #ddd;
+  }
+  .content {
+    display: none;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-top: none;
+    margin-bottom: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+  }
+  th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  input[type="text"], input[type="file"] {
+    width: 90%;
+  }
+  .dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+  }
+  .dot.red {
+    background-color: red;
+  }
+  .dot.green {
+    background-color: green;
+  }
+  .status-missing {
+    background-color: orange;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  .status-done {
+    background-color: green;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .center {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .progress-circle {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin: 0 auto;
+  }
+  .progress-circle svg {
+    transform: rotate(-90deg);
+  }
+  .progress-circle circle {
+    fill: none;
+    stroke-width: 10;
+  }
+  .progress-bg {
+    stroke: url(#bgGradient);
+  }
+  .progress-bar {
+    stroke: url(#barGradient);
+    stroke-linecap: round;
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+    transition: stroke-dashoffset 1.2s ease;
+  }
+  .progress-circle-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #007BFF;
+    font-weight: bold;
+    transition: stroke-dashoffset 1.2s ease;
+
+  }
