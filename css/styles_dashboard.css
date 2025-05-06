@@ -1,0 +1,189 @@
+/*
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  } */
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+  }
+
+      .top-header {
+        width: 100%;
+        background-color: #f5f7fa;
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      }
+      
+      .top-header h1 {
+        margin: 0 0 1rem 0;
+        color: #002147;
+      }
+      
+      .tab-nav {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border-bottom: 2px solid #ccc;
+      }
+      
+      .tab-nav li {
+        padding: 0.5rem 0;
+        cursor: pointer;
+        position: relative;
+        color: #002147;
+      }
+      
+      .tab-nav li.active {
+        font-weight: bold;
+        border-bottom: 3px solid #002147;
+      }
+      
+      .dashboard-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem;
+        background-color: #f5f7fa;
+      }
+      
+      .card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      }
+      
+  
+  header {
+    width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+    header h1 {
+        color: #003366;
+        margin-bottom: 0.5rem;
+    }
+    
+    .tabs {
+        display: flex;
+        justify-content: flex-start;
+        list-style: none;
+        gap: 1.5rem;
+        padding: 0.5rem 1rem;
+        margin: 0;
+        border-bottom: 2px solid #eee;
+        background-color: #b9b9b9;
+        width: 100%;
+    }
+  
+    .tabs li {
+        cursor: pointer;
+        padding: 0.5rem;
+        position: relative;
+        color: #333;
+        transition: color 0.3s;
+    }
+  
+    .tabs li:hover {
+        color: #003366;
+    }
+
+    .tabs li.active {
+        font-weight: bold;
+        color: #003366;
+    }
+  
+    .tabs li.active::after {
+        content: '';
+        display: block;
+        height: 3px;
+        background: #003366;
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        right: 0;
+      }
+      
+      /* Main container should be clearly separated below nav */
+      .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+  
+  .card {
+    background: #F2F4F8;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+  }
+  
+  .description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .description .image img {
+    max-width: 250px;
+    border-radius: 8px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
+  }
+  
+  .progress-bar {
+    background: #ADB7BD;
+    height: 10px;
+    border-radius: 5px;
+    margin: 0.5rem 0;
+    overflow: hidden;
+  }
+  
+  .progress-fill {
+    background: #003366;
+    height: 100%;
+  }
+  
+  .progress-text {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .steps li {
+    list-style-type: circle;
+    margin-left: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .steps .active::before {
+    content: '✔';
+    margin-right: 5px;
+    color: green;
+  }
+  
+  .lca-chart {
+    width: 228.96px; /*232.87px; */
+    height: 199.82px; /*194px;*/
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
