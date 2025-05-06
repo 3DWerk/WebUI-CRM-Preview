@@ -9,7 +9,7 @@ body {
   padding: 4rem 2rem;
   height: 100vh;
   color: #222; /* Dark text for readability */
-  background-image: url('../Assets/bridge_background.png'); /* New bright background image */
+  background-image: url('../assets/bridge_background.png'); /* New bright background image */
 
   background-repeat: no-repeat;
  /* background-attachment: fixed; */
