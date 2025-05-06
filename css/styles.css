@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  display: flex;
+}
+
+#homePage {
+  position: relative;
+  padding: 4rem 2rem;
+  height: 100vh;
+  color: #222; /* Dark text for readability */
+  background-image: url('../Assets/bridge_background.png'); /* New bright background image */
+
+  background-repeat: no-repeat;
+ /* background-attachment: fixed; */
+
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#homePage::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255, 255, 255, 0.4); /* Light overlay for readability */
+  z-index: 1;
+}
+
+#homePage * {
+  position: relative;
+  z-index: 2;
+}
+
+#homePage h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #111;
+}
+
+#homePage h2 {
+  font-weight: 300;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+#homePage p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+#homePage a {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #0068cf;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#homePage a:hover {
+  background-color: #003366;
+}
