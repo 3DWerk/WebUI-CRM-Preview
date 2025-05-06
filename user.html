@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <!-- Main page for the user profile, linking to all other pages -->     
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="BridgeBauer 3Dwerk - User Profile Page" />
+
+    <title>BridgeBauer 3Dwerk | User Profile </title>
+    <!-- Favicon links to display the logo on the website tab -->     
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="stylesheet" href="css/styles_sidebar.css" />
+    <link rel="stylesheet" href="css/styles_user.css" />
+  
+  
+
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-item">
+            <a href="index.html" class="sidebar-link">
+                <img src="assets/3D_Logo.png" class="icon" title="BridgeBauer"/>
+                <span class="label">BridgeBauer</span>
+            </a>
+        </div>
+
+        <div class="sidebar-item">
+            <a href="user.html" class="sidebar-link">
+              <img src="icons/user.svg" class="icon" title="User"/>
+              <span class="label">User</span>
+            </a>
+        </div>
+
+        <div class="sidebar-item">
+            <a href="dashboard.html" class="sidebar-link">
+                <img src="icons/dashboard.svg" class="icon" title="Dashboard"/>
+                <span class="label">Dashboard</span>
+            </a>
+        </div>
+
+        <div class="sidebar-item" >
+            <a href="inputParameters.html" class="sidebar-link">
+                <img src="icons/input-tablet.svg" class="icon" title="Input Parameters"/>
+                <span class="label">Input Parameters  </span>
+            </a>
+        </div>
+
+        <!-- To add : -->
+        <div class="sidebar-item">
+            <a href="rfi.html" class="sidebar-link">
+                <img src="icons/request-approval.svg" class="icon" title="PFIs"/>
+                <span class="label">RFIs</span>
+            </a>
+        </div>
+        
+        <div class="sidebar-item">
+            <a href="documentReview.html" class="sidebar-link"> 
+                <img src="icons/documentReview.svg" class="icon" title="Document Review"/>
+                <span class="label">Document Review</span>
+            </a>
+        </div>
+    </div>
+
+  <!-- Main content -->
+  <div class="main-content">
+    <div class="user-profile">
+      <h2>User Profile</h2>
+
+      <div class="profile-photo">
+        <img src="Assets/default-profile.svg" alt="Profile Photo" id="profileImg" title="Profile Photo"/>
+        <input type="file" id="photoInput" accept="image/*" />
+      </div>
+
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" placeholder="Enter your first name" />
+
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" placeholder="Enter your last name" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" />
+
+      <label for="address">Address</label>
+      <input type="text" id="address" placeholder="Enter your address" />
+
+      <label for="newPassword">New Password</label>
+      <input type="password" id="newPassword" placeholder="Enter new password" />
+
+      <button onclick="saveUserInfo()">Save Changes</button>
+    </div>
+  </div>
+
+    <!-- Include your JavaScript files here  -->
+    <script src="js/user.js"></script>           
+
+
+</body>
+</html>
