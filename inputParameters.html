@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Main page for the dashboard, linking to all other pages -->     
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="BridgeBauer 3Dwerk - Input Parameters Page" />
+    
+    <title>BridgeBauer 3Dwerk | Input Parameters </title>
+    <!-- Favicon links to display the logo on the website tab -->     
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="stylesheet" href="css/styles_sidebar.css" />
+    <link rel="stylesheet" href="css/styles_inputParameter.css" />
+
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-item">
+            <a href="index.html" class="sidebar-link">
+                <img src="assets/3D_Logo.png" class="icon" title="BridgeBauer"/>
+                <span class="label">BridgeBauer</span>
+            </a>
+        </div>
+
+        <div class="sidebar-item">
+            <a href="user.html" class="sidebar-link">
+              <img src="icons/user.svg" class="icon" title="User"/>
+              <span class="label">User</span>
+            </a>
+        </div>
+
+        <div class="sidebar-item">
+            <a href="dashboard.html" class="sidebar-link">
+                <img src="icons/dashboard.svg" class="icon" title="Dashboard"/>
+                <span class="label">Dashboard</span>
+            </a>
+        </div>
+
+        <div class="sidebar-item" >
+            <a href="inputParameters.html" class="sidebar-link">
+                <img src="icons/input-tablet.svg" class="icon" title="Input Parameters"/>
+                <span class="label">Input Parameters  </span>
+            </a>
+        </div>
+
+        <!-- To add : -->
+        <div class="sidebar-item">
+            <a href="rfi.html" class="sidebar-link">
+                <img src="icons/request-approval.svg" class="icon" title="PFIs"/>
+                <span class="label">RFIs</span>
+            </a>
+        </div>
+        
+        <div class="sidebar-item">
+            <a href="documentReview.html" class="sidebar-link"> 
+                <img src="icons/documentReview.svg" class="icon" title="Document Review"/>
+                <span class="label">Document Review</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <div id="inputPage" style="display:block;">
+        <h1>Bridge Project Input Parameters</h1>
+        <div id="accordion"></div>
+        <div class="center">
+            <button onclick="calculateCompletion()">Submit</button>
+        </div>
+        <div class="center" style="margin-top:40px;">
+            <div class="progress-circle">
+            <svg width="150" height="150">
+                <defs>
+                <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#ccc"/>
+                    <stop offset="100%" stop-color="#999"/>
+                </linearGradient>
+                <linearGradient id="barGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#2196f3"/>
+                    <stop offset="100%" stop-color="#1e88e5"/>
+                </linearGradient>
+                </defs>
+                <circle class="progress-bg" cx="75" cy="75" r="70"></circle>
+                <circle class="progress-bar" cx="75" cy="75" r="70"></circle>
+            </svg>
+            <div class="progress-circle-text" id="progressText">0%</div>
+            </div>
+            <div style="margin-top:10px; font-size:20px; color:#007BFF;">Input Completion</div>
+        </div>
+        </div>
+    </div>
+
+
+<script src="js/scriptInput.js"></script>     <!-- Input parameters js -->
+
+  <!-- Include your JavaScript files here  -- 
+   <script src="js/user.js"></script>           
+
+  <script src="js/sidebar.js"></script>
+  <script src="js/inputParameters.js"></script> 
+  <script src="js/accordion.js"></script>
+  <script src="js/progressCircle.js"></script>
+  <script src="js/expandableTable.js"></script>
+  <script src="js/notification.js"></script>
+<script src="js/navigation.js"></script>      
+  
+-->
+
+</body>
+</html>
