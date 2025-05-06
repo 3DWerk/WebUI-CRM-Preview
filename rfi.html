@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Main page for the Request For Informations, linking to all other pages -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="BridgeBauer 3Dwerk - RFIs Page" />
+
+    <title>BridgeBauer 3Dwerk | RFIs</title>
+    <!-- Favicon links to display the logo on the website tab -->     
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="stylesheet" href="css/styles_sidebar.css" />
+    <link rel="stylesheet" href="css/styles_rfi.css" />
+
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+    }
+    .main-content {
+      padding: 20px;
+      flex-grow: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-item">
+      <a href="index.html" class="sidebar-link">
+        <img src="assets/3D_Logo.png" class="icon" title="BridgeBauer"/>
+        <span class="label">BridgeBauer</span>
+      </a>
+    </div>
+
+    <div class="sidebar-item">
+      <a href="user.html" class="sidebar-link">
+        <img src="icons/user.svg" class="icon" title="User"/>
+        <span class="label">User</span>
+      </a>
+    </div>
+
+    <div class="sidebar-item">
+      <a href="dashboard.html" class="sidebar-link">
+        <img src="icons/dashboard.svg" class="icon" title="Dashboard"/>
+        <span class="label">Dashboard</span>
+      </a>
+    </div>
+
+    <div class="sidebar-item">
+      <a href="inputParameters.html" class="sidebar-link">
+        <img src="icons/input-tablet.svg" class="icon" title="Input Parameters"/>
+        <span class="label">Input Parameters</span>
+      </a>
+    </div>
+
+    <div class="sidebar-item">
+      <a href="rfi.html" class="sidebar-link">
+        <img src="icons/request-approval.svg" class="icon" title="RFIs"/>
+        <span class="label">RFIs</span>
+      </a>
+    </div>
+
+    <div class="sidebar-item">
+      <a href="documentReview.html" class="sidebar-link"> 
+        <img src="icons/documentReview.svg" class="icon" title="Document Review"/>
+        <span class="label">Document Review</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="main-content">
+    <h1>Requests for Information</h1>
+    <button class="add-button" id="addBtn">+ Add New Point</button>
+    <button class="add-button" id="exportBtn">Export to CSV</button>
+    
+    <table id="rfiTable">
+        <thead>
+            <tr>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Ref. ID</th>
+                <th>Created on</th>
+                <th>Created by</th>
+                <th>Due Date</th>
+                <th>Assigned to</th>
+                <th>Comment</th>
+                <th>Modify</th>
+            </tr>
+        </thead>
+          
+        <tbody></tbody>
+      </table>
+
+
+      <div id="overlay"></div>
+
+      <div id="popupForm">
+        <h3>Add New RFI Entry</h3>
+        <form id="rfiForm">
+          <label>Priority:
+            <select id="priority" required>
+              <option value="">--Select--</option>
+              <option>High</option>
+              <option>Medium</option>
+              <option>Low</option>
+            </select>
+          </label>
+      
+          <label>Description:
+            <input type="text" id="description" required />
+          </label>
+      
+          <label>Created by (Username & Company):
+            <input type="text" id="createdBy" required />
+          </label>
+      
+          <label>Due Date:
+            <input type="date" id="dueDate" required />
+          </label>
+      
+          <label>Assigned to:
+            <input type="text" id="assignedTo" required />
+          </label>
+      
+          <label>Comment:
+            <input type="text" id="comment" required />
+          </label>
+      
+          <button type="submit">Add</button>
+          <button type="button" id="cancelBtn">Cancel</button>
+        </form>
+      </div>
+      
+
+
+
+  </div>
+
+    <script src="js/scriptRFI.js"></script>
+</body>
+</html>
