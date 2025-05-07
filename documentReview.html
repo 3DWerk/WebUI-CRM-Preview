@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Main page for the document review, linking to all other pages -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="BridgeBauer 3Dwerk - Document Review Page" />
+
+    <title>BridgeBauer 3Dwerk | Document Review</title>
+    <!-- Favicon links to display the logo on the website tab -->     
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="stylesheet" href="css/styles_sidebar.css" />
+    <link rel="stylesheet" href="css/styles_documentReview.css" />
+
+
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            display: flex;
+        }
+        .main-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+   <!-- Sidebar -->
+   <div class="sidebar">
+        <div class="sidebar-item">
+            <a href="index.html" class="sidebar-link">
+                <img src="assets/3D_Logo.png" class="icon" title="BridgeBauer"/>
+                <span class="label">BridgeBauer</span>
+            </a>
+        </div>
+
+        <div class="sidebar-item">
+            <a href="user.html" class="sidebar-link">
+                <img src="icons/user.svg" class="icon" title="User"/>
+                <span class="label">User</span>
+            </a>
+        </div>
+
+        <div class="sidebar-item">
+            <a href="dashboard.html" class="sidebar-link">
+                <img src="icons/dashboard.svg" class="icon" title="Dashboard"/>
+                <span class="label">Dashboard</span>
+            </a>
+        </div>
+
+        <div class="sidebar-item">
+            <a href="inputParameters.html" class="sidebar-link">
+                <img src="icons/input-tablet.svg" class="icon" title="Input Parameters"/>
+                <span class="label">Input Parameters</span>
+            </a>
+        </div>
+
+        <div class="sidebar-item">
+            <a href="rfi.html" class="sidebar-link">
+                <img src="icons/request-approval.svg" class="icon" title="RFIs"/>
+                <span class="label">RFIs</span>
+            </a>
+        </div>
+
+        <div class="sidebar-item">
+            <a href="documentReview.html" class="sidebar-link"> 
+                <img src="icons/documentReview.svg" class="icon" title="Document Review"/>
+                <span class="label">Document Review</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <h1>Document Review</h1>
+        <button class="download-btn" onclick="downloadAll()">Download All</button>
+
+        <!-- for the progress bar -->
+        <div id="downloadProgressContainer" style="display: none; margin: 20px 0;">
+            <div style="font-weight: bold; margin-bottom: 5px;">Preparing Download...</div>
+            <div style="background-color: #e0e0e0; border-radius: 4px; height: 20px; width: 100%;">
+                <div id="downloadProgressBar"
+                    style="height: 100%; width: 0%; background-color: #2196f3; border-radius: 4px; transition: width 0.3s;"></div>
+            </div>
+            <div id="downloadProgressText" style="margin-top: 5px; color: #007BFF;"></div>
+        </div>
+            
+
+        <table id="docTable">
+            <thead>
+                <tr>
+                    <th>Document Name</th>
+                    <th>Version</th>
+                    <th>Created On</th>
+                    <th>Created By</th>
+                    <th>Open</th>
+                </tr>
+            </thead>
+            <tbody id="docTableBody">
+                <!-- JS will populate rows here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <!--
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chartjs-plugin-datalabels.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chartjs-plugin-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chartjs-plugin-annotation.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chartjs-plugin-colorschemes.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chartjs-plugin-legend.min.js"></script>
+    -->
+    <script src="js/scriptDocumentReview.js"></script>
+</body>
+</html>
