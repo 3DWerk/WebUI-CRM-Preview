@@ -1,0 +1,42 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  .version-select {
+    cursor: pointer;
+    color: #007BFF;
+    text-decoration: underline;
+  }
+  .open-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  .open-btn:disabled {
+    background-color: gray;
+  }
+  .download-btn {
+    margin-bottom: 15px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+
+/* might be not necessary */
+  #downloadProgress {
+    color: #007BFF;
+    margin-top: 10px;
+    font-size: 16px;
+/*    display: none;*/  /* Initially hidden */
+    
+}
